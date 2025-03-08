@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالت عاشقانه</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding-top: 100px;
+        }
+        .heart {
+            font-size: 100px;
+            color: red;
+            cursor: pointer;
+            animation: heart-beat 1s infinite;
+        }
+        .message {
+            font-size: 24px;
+            color: #e74c3c;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            animation: fadeInOut 3s ease-out;
+        }
+        @keyframes heart-beat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- قلب قرمز -->
+    <div class="heart" onclick="displayMessage()">❤️</div>
+
+    <!-- پیام عاشقانه -->
+    <div class="message" id="message">
+        <span>أنتِ حياتي!</span>
+    </div>
+
+    <script>
+        // جملات عاشقانه به زبان عربی
+        const messages = [
+            "أنتِ حياتي!",
+            "أنتِ حبي الأبدي!",
+            "أنتِ نجم في سمائي!",
+            "قلبي ملككِ!",
+            "أنتِ عيوني!",
+            "أنتِ سر سعادتي!"
+        ];
+
+        function displayMessage() {
+            const messageDiv = document.getElementById('message');
+            // انتخاب پیام تصادفی از لیست پیام‌ها
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            messageDiv.innerHTML = `<span>${randomMessage}</span>`;
+
+            // نمایش پیام
+            messageDiv.style.display = "block";
+
+            // مخفی کردن پیام پس از 3 ثانیه
+            setTimeout(() => {
+                messageDiv.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کاظم ساحر و گربه نارنجی</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding-top: 50px;
+        }
+        .cat-image {
+            width: 300px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+        .cat-image:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            font-size: 24px;
+            color: #e74c3c;
+            margin-top: 20px;
+            display: none;
+            animation: fadeInOut 3s ease-out;
+        }
+        .character {
+            font-weight: bold;
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- تصویر گربه نارنجی -->
+    <img src="https://i.pinimg.com/originals/84/8f/5f/848f5ff8f5a7d4fefcbdacb2344c9e24.jpg" class="cat-image" onclick="playSoundAndShowMessage()" alt="گربه نارنجی">
+
+    <!-- پیام مکالمه -->
+    <div class="message" id="message">
+        <span class="character">كاظم ساهر:</span> جوجو امير يحبك<br><br>
+        <span class="character">القط:</span> جوجو امير يحبك
+    </div>
+
+    <!-- فایل صوتی برای کاظم ساحر -->
+    <audio id="kademSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
+    <!-- فایل صوتی برای گربه -->
+    <audio id="catSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
+    <script>
+        function playSoundAndShowMessage() {
+            // پخش صدای کاظم ساحر
+            const kademSound = document.getElementById('kademSound');
+            const catSound = document.getElementById('catSound');
+            
+            // پخش صدای کاظم ساحر
+            kademSound.play();
+
+            // پخش صدای گربه
+            setTimeout(function() {
+                catSound.play();
+            }, 2000); // صدای گربه بعد از 2 ثانیه پخش می‌شود
+
+            // نمایش پیام مکالمه
+            const messageDiv = document.getElementById('message');
+            messageDiv.style.display = "block";
+
+            // مخفی کردن پیام بعد از 3 ثانیه
+            setTimeout(() => {
+                messageDiv.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
